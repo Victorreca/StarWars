@@ -1,0 +1,12 @@
+<div class="grid grid-cols-12">
+  <ul class="col-span-6 col-start-4 p-4 rounded-lg text-main-text">
+    @for(starship of starshipsChild; track starship.model){
+
+    <li class="my-5">
+      <a class="block bg-primary py-4 px-3 rounded-sm hover:text-white transition duration-300 ease-in-out">
+        <strong>{{ starship.name }}</strong> <br> {{ starship.model }}
+      </a>
+    </li>
+    }
+  </ul>
+</div>

@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Starship } from '../../interfaces/starship';
 import { StarshipService } from '../../services/starship.service';
+import { StarshipsComponent } from '../starships/starships.component';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [StarshipsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
