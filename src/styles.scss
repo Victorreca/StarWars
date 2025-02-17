@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@theme {
+  --color-twitter-blue: #1da1f2;
+  --color-primary: #151515;
+  --color-main-text: #818181;
+}
