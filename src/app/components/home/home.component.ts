@@ -13,8 +13,6 @@ export class HomeComponent implements OnInit {
   starships: Starship[] = [];
   private starshipService = inject(StarshipService);
 
-  constructor() {}
-
   ngOnInit(): void {
     this.fetchStarships();
   }
@@ -23,6 +21,7 @@ export class HomeComponent implements OnInit {
     this.starshipService.fetchStarships().subscribe({
       next: (response) => {
         this.starships = response.results.map((ship: any) => ({
+          id: ship.url.split('/').filter(Boolean).pop(),
           name: ship.name,
           model: ship.model,
         }));

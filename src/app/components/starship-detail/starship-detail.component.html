@@ -1,1 +1,11 @@
-<p>starship-detail works!</p>
+@if(starship){
+<img src="https://res.cloudinary.com/dwygcrj5r/image/upload/v1739873549/65_whorbu.jpg" alt="Star Wars Image">
+
+<h1>{{ starship.name }}</h1>
+<p>Model: {{ starship.model }}</p>
+<p>Manufacturer: {{ starship.manufacturer }}</p>
+<p>Length: {{ starship.length }}</p>
+<p>Cost in Credits: {{ starship.cost_in_credits }}</p>
+<p>Max Atmosphering Speed: {{ starship.max_atmosphering_speed }}</p>
+<p>Crew: {{ starship.crew }}</p>
+}

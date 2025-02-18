@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StarshipsResponse } from '../interfaces/starships-response';
+import { Starship } from '../interfaces/starship';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +14,9 @@ export class StarshipService {
 
   fetchStarships(): Observable<StarshipsResponse> {
     return this.http.get<StarshipsResponse>(this.apiUrl);
+  }
+
+  fetchStarshipById(id: string): Observable<Starship> {
+    return this.http.get<Starship>(`${this.apiUrl}${id}/`);
   }
 }

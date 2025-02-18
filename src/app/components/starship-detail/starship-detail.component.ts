@@ -1,11 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StarshipService } from '../../services/starship.service';
+import { Starship } from '../../interfaces/starship';
 
 @Component({
   selector: 'app-starship-detail',
   imports: [],
   templateUrl: './starship-detail.component.html',
-  styleUrl: './starship-detail.component.scss'
+  styleUrl: './starship-detail.component.scss',
 })
-export class StarshipDetailComponent {
+export class StarshipDetailComponent implements OnInit {
+  route = inject(ActivatedRoute);
+  router = inject(Router);
+  starshipService = inject(StarshipService);
+  starship: Starship | null = null;
 
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (!id) {
+      this.router.navigate(['/starships']);
+    } else {
+      this.fetchStarship(id);
+    }
+  }
+
+  fetchStarship(id: string): void {
+    this.starshipService.fetchStarshipById(id).subscribe({
+      next: (starship) => {
+        this.starship = starship;
+      },
+      error: (error) => {
+        console.error('Error get starship:', error);
+      },
+    });
+  }
 }
