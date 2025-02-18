@@ -2,10 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StarshipService } from '../../services/starship.service';
 import { Starship } from '../../interfaces/starship';
+import { StarshipGalleryComponent } from '../starship-gallery/starship-gallery.component';
 
 @Component({
   selector: 'app-starship-detail',
-  imports: [],
+  imports: [StarshipGalleryComponent],
   templateUrl: './starship-detail.component.html',
   styleUrl: './starship-detail.component.scss',
 })
