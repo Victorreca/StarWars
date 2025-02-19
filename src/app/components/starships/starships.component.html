@@ -1,0 +1,13 @@
+<div class="grid grid-cols-12 h-screen items-center">
+  <ul class="col-span-10 col-start-2 md:col-span-6 md:col-start-4 rounded-lg text-main-text">
+    @for(starship of starshipsChild; track starship.model){
+
+    <li class="my-5">
+      <a [routerLink]="['/starship', starship.id]"
+        class="block bg-primary py-4 px-3 rounded-sm hover:text-white transition duration-300 ease-in-out cursor-pointer">
+        <strong>{{ starship.name }}</strong> <br> {{ starship.model }}
+      </a>
+    </li>
+    }
+  </ul>
+</div>

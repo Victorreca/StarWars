@@ -1,0 +1,9 @@
+@if(imageUrl){
+<section>
+  <img [src]="imageUrl" [alt]="'Starship ' + starshipId" width="500" class="object-cover">
+</section>
+} @else {
+<section>
+  <img src="https://res.cloudinary.com/dwygcrj5r/image/upload/v1739873550/1.jpg" alt="Starship not found" width="300">
+</section>
+}
