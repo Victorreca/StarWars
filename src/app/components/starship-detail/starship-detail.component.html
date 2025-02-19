@@ -1,11 +1,14 @@
 @if(starship){
-<!-- <img src="https://res.cloudinary.com/dwygcrj5r/image/upload/v1739873549/65_whorbu.jpg" alt="Star Wars Image"> -->
-<app-starship-gallery></app-starship-gallery>
-<h1>{{ starship.name }}</h1>
-<p>Model: {{ starship.model }}</p>
-<p>Manufacturer: {{ starship.manufacturer }}</p>
-<p>Length: {{ starship.length }}</p>
-<p>Cost in Credits: {{ starship.cost_in_credits }}</p>
-<p>Max Atmosphering Speed: {{ starship.max_atmosphering_speed }}</p>
-<p>Crew: {{ starship.crew }}</p>
+<div class="grid grid-cols-1 md:grid-cols-2 w-10/12 mx-auto">
+  <app-starship-gallery class="mx-auto md:ml-auto"></app-starship-gallery>
+  <section class="text-white bg-primary p-5">
+    <h1>{{ starship.name }}</h1>
+    <p>Model: {{ starship.model }}</p>
+    <p>Manufacturer: {{ starship.manufacturer }}</p>
+    <p>Length: {{ starship.length }}</p>
+    <p>Cost in Credits: {{ starship.cost_in_credits }}</p>
+    <p>Max Atmosphering Speed: {{ starship.max_atmosphering_speed }}</p>
+    <p>Crew: {{ starship.crew }}</p>
+  </section>
+</div>
 }
