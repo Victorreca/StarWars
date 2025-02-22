@@ -1,5 +1,5 @@
 .animation-section {
-  --c: #ffc107;
+  --c: var(--color-star-wars-yellow);
   --b: 5px;
   --g: 0px;
   padding: calc(var(--g) + var(--b));
