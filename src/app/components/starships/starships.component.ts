@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { Starship } from '../../interfaces/starship';
 import { RouterModule } from '@angular/router';
 import { StarshipService } from '../../services/starship.service';
@@ -11,7 +11,8 @@ import { StarshipService } from '../../services/starship.service';
 })
 export class StarshipsComponent implements OnInit {
   starshipsChild: Starship[] = [];
-  nextPageUrl: string | null = null;
+  nextStarshipsPageUrl: string | null = null;
+  isLoading: boolean = false;
   private starshipService = inject(StarshipService);
 
   ngOnInit(): void {
@@ -19,20 +20,37 @@ export class StarshipsComponent implements OnInit {
   }
 
   fetchStarships(url: string = this.starshipService.urlApi): void {
+    if (this.isLoading) return;
+    this.isLoading = true;
     this.starshipService.fetchStarships(url).subscribe({
       next: (response) => {
-        this.starshipsChild = [...this.starshipsChild, ...response.starships];
-        this.nextPageUrl = response.nextPageUrl;
+        this.updateStarships(response.starships);
+        this.updateNextPageUrl(response.nextPageUrl);
+        this.isLoading = false;
       },
       error: (error) => {
         console.error('Error fetching ships:', error);
+        this.isLoading = false;
       },
     });
   }
 
-  loadMore(): void {
-    if (this.nextPageUrl) {
-      this.fetchStarships(this.nextPageUrl);
+  updateStarships(newStarships: Starship[]): void {
+    this.starshipsChild = [...this.starshipsChild, ...newStarships];
+  }
+
+  updateNextPageUrl(nextPage: string | null): void {
+    this.nextStarshipsPageUrl = nextPage;
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    if (
+      window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+      this.nextStarshipsPageUrl &&
+      !this.isLoading
+    ) {
+      this.fetchStarships(this.nextStarshipsPageUrl);
     }
   }
 }
