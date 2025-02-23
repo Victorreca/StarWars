@@ -4,8 +4,8 @@
       <nav class="relative flex items-center justify-between h-15 lg:h-40 px-4 sm:px-6 lg:px-8">
         <div class="lg:absolute lg:-translate-x-1/2 lg:inset-y-5 lg:left-1/2">
           <div class="flex-shrink-0">
-            <a href="#" class="flex">
-              <img class="header-logo" src="img/logo-sw.png" alt="">
+            <a [routerLink]="['/']" class="flex">
+              <img class="header-logo" src="assets/img/logo-sw.png" alt="">
             </a>
           </div>
         </div>
@@ -17,16 +17,20 @@
           </svg>
         </button>
         <div class="hidden lg:flex lg:items-center lg:space-x-4 uppercase ml-auto">
-          <a href="#" title="" class="text-base font-medium text-main-text hover:text-white">Sign up</a>
+          <a [routerLink]="['/register']" title="" class="text-base font-medium text-main-text hover:text-white">Sign
+            up</a>
           <span class="text-main-text">///</span>
-          <a href="#" title="" class="text-base font-medium text-main-text hover:text-white">Sign in</a>
+          <a [routerLink]="['/login']" title="" class="text-base font-medium text-main-text hover:text-white">Sign
+            in</a>
         </div>
       </nav>
       <nav>
         <div class="hidden lg:flex uppercase justify-center text-main-text border-b border-t border-main-text">
-          <a href="#" class="text-base font-medium border-r border-l border-main-text px-5 py-4 hover:text-white"> Home
+          <a [routerLink]="['/']"
+            class="text-base font-medium border-r border-l border-main-text px-5 py-4 hover:text-white"> Home
           </a>
-          <a href="#" class="text-base font-medium border-r border-main-text px-5 py-4 hover:text-white"> Starships </a>
+          <a [routerLink]="['/starships']"
+            class="text-base font-medium border-r border-main-text px-5 py-4 hover:text-white">Starships</a>
         </div>
       </nav>
     </div>
@@ -48,8 +52,8 @@
 
       <div class="mt-6">
         <div class="flex flex-col space-y-2 uppercase">
-          <a href="#" class="py-2 text-base font-medium text-main-text"> Home </a>
-          <a href="#" class="py-2 text-base font-medium text-main-text "> Starships </a>
+          <a [routerLink]="['/']" class="py-2 text-base font-medium text-main-text"> Home </a>
+          <a [routerLink]="['/starships']" class="py-2 text-base font-medium text-main-text "> Starships </a>
         </div>
         <hr class="my-4 border-gray-200" />
         <div class="flex flex-col space-y-2 uppercase">

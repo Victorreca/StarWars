@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-
-import { StarshipsComponent } from '../starships/starships.component';
-import { Starship } from '../../interfaces/starship';
-
+import { IntroHomeComponent } from '../intro-home/intro-home.component';
 @Component({
   selector: 'app-home',
-  imports: [StarshipsComponent],
+  imports: [IntroHomeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
