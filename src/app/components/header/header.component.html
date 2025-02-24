@@ -1,7 +1,8 @@
 <header>
   <div class="text-white">
     <div class="mx-auto">
-      <nav class="relative flex items-center justify-between h-15 lg:h-40 px-4 sm:px-6 lg:px-8">
+      <app-navbar></app-navbar>
+      <!-- <nav class="relative flex items-center justify-between h-15 lg:h-40 px-4 sm:px-6 lg:px-8">
         <div class="lg:absolute lg:-translate-x-1/2 lg:inset-y-5 lg:left-1/2">
           <div class="flex-shrink-0">
             <a [routerLink]="['/']" class="flex">
@@ -32,12 +33,11 @@
           <a [routerLink]="['/starships']"
             class="text-base font-medium border-r border-main-text px-5 py-4 hover:text-white">Starships</a>
         </div>
-      </nav>
+      </nav> -->
     </div>
   </div>
 
-
-  <nav [ngClass]="{'hidden': !isMenuOpen}" class="py-4 bg-white lg:hidden">
+  <!-- <nav [ngClass]="{'hidden': !isMenuOpen}" class="py-4 bg-white lg:hidden">
     <div class="px-4 mx-auto sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
         <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Menu</p>
@@ -62,5 +62,5 @@
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
 </header>

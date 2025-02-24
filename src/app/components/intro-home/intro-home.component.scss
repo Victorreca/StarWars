@@ -32,7 +32,7 @@
   z-index: 3;
   width: 98%;
   height: 50em;
-  bottom: 0;
+  bottom: 35%;
   font-size: 80px;
   font-weight: bold;
   text-align: justify;
@@ -51,27 +51,17 @@
 }
 
 .star-wars-intro .space-button {
-  color: #ebd71c;
-  border: 12px solid #ebd71c;
+  border: 3px solid var(--color-star-wars-yellow);
+  border-radius: 10px;
   padding: 20px;
-  background: transparent;
   text-decoration: none;
   margin: 0 auto;
-  display: block;
   text-align: center;
-}
-
-.star-wars-intro .space-button:hover {
-  background-color: #d2be03;
-  border-color: #d2be03;
-  color: black;
-}
-
-.star-wars-intro .space-button:active,
-.star-wars-intro .space-button:focus {
-  background-color: #b8a40a;
-  border-color: #b8a40a;
-  color: black;
+  opacity: 1;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .star-wars-intro .title-content {
@@ -83,8 +73,6 @@
 .star-wars-intro .title-content > .content-header {
   text-align: center;
 }
-
-/* Main Image Styles */
 
 .star-wars-intro .main-logo {
   position: absolute;
@@ -259,5 +247,34 @@
     position: absolute;
     top: 100%;
     animation: scroll 100s linear 4s forwards;
+  }
+}
+@media (max-width: 1023px) {
+  .star-wars-intro {
+    min-height: 100vh;
+  }
+}
+
+.star-wars-intro .space-button-div {
+  visibility: hidden;
+  z-index: 10;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: showButton 45s steps(1, end) forwards,
+    fadeIn 1s ease-in-out 45s forwards;
+}
+
+@keyframes showButton {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+    pointer-events: auto;
   }
 }
