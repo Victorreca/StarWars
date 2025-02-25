@@ -13,8 +13,8 @@
   cursor: pointer;
   filter: grayscale(50%);
   transition: 0.3s;
-}
-.animation-img:hover {
-  --_p: 75%;
-  filter: grayscale(0%);
+  &:hover {
+    --_p: 75%;
+    filter: grayscale(0%);
+  }
 }
