@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +17,11 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
   form!: FormGroup;
+  errorMessage: string | null = null;
 
   private fb = inject(FormBuilder);
+  private loginService = inject(LoginService);
+  private router = inject(Router);
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -27,7 +30,17 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Form Data:', this.loginForm.value);
+      const { email, password } = this.loginForm.value;
+
+      this.loginService.signIn(email, password).subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          console.error('Error to sign in', error);
+          this.errorMessage = 'Invalid email or password. Please try again.';
+        },
+      });
     }
   }
 }
