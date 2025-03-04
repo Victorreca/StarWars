@@ -1,0 +1,67 @@
+<nav class="relative flex items-center justify-between h-15 lg:h-40 px-4 sm:px-6 lg:px-8">
+  <div class="lg:absolute lg:-translate-x-1/2 lg:inset-y-5 lg:left-1/2">
+    <div class="flex-shrink-0">
+      <a [routerLink]="['/']" class="flex">
+        <img class="header-logo" src="assets/img/logo-sw.png" alt="">
+      </a>
+    </div>
+  </div>
+
+  <button (click)="toggleMenu()" class="inline-flex p-2 ml-5 text-black rounded-md lg:hidden">
+    <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </svg>
+  </button>
+
+  <div class="hidden lg:flex lg:items-center lg:space-x-4 uppercase ml-auto">
+    @if (userEmail) {
+    <span class="text-white font-medium">Hi {{ userEmail }}!</span>
+    <a (click)="logout()" class="text-base font-medium text-red-600 hover:text-main-text cursor-pointer">Logout</a>
+    } @else {
+    <a [routerLink]="['/signup']" title="" class="text-base font-medium text-main-text hover:text-white">Sign up</a>
+    <span class="text-main-text">///</span>
+    <a [routerLink]="['/login']" title="" class="text-base font-medium text-main-text hover:text-white">Sign in</a>
+    }
+  </div>
+</nav>
+
+<nav class="hidden lg:flex uppercase justify-center text-main-text border-b border-t border-main-text">
+  <a [routerLink]="['/']" class="text-base font-medium border-r border-l border-main-text px-5 py-4 hover:text-white">
+    Home
+  </a>
+  <a [routerLink]="['/starships']"
+    class="text-base font-medium border-r border-main-text px-5 py-4 hover:text-white">Starships</a>
+</nav>
+
+<nav [ngClass]="{'hidden': !isMenuOpen}" class="py-4 bg-white lg:hidden">
+  <div class="px-4 mx-auto sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between">
+      <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Menu</p>
+
+      <button (click)="toggleMenu()"
+        class="inline-flex p-2 text-main-text rounded-md focus:bg-gray-100 hover:bg-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mt-6">
+      <div class="flex flex-col space-y-2 uppercase">
+        <a [routerLink]="['/']" class="py-2 text-base font-medium text-main-text"> Home </a>
+        <a [routerLink]="['/starships']" class="py-2 text-base font-medium text-main-text "> Starships </a>
+      </div>
+      <hr class="my-4 border-gray-200" />
+      <div class="flex flex-col space-y-2 uppercase">
+        @if (userEmail) {
+        <span class="text-base font-medium text-main-text">Hi {{ userEmail }}!</span>
+        <a (click)="logout()" class="text-base font-medium text-red-600 cursor-pointer">Logout</a>
+        }@else {
+        <a [routerLink]="['/signup']" class=" py-2 text-base font-medium text-main-text"> Sign up </a>
+        <a [routerLink]="['/login']" class="py-2 text-base font-medium text-main-text"> Sign in </a>
+        }
+      </div>
+    </div>
+  </div>
+</nav>
