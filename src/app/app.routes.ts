@@ -5,6 +5,7 @@ import { StarshipsComponent } from './components/starships/starships.component';
 import { MainLayoutComponent } from './components/layouts/main-layout/main-layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthLayoutComponent } from './components/layouts/auth-layout/auth-layout.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
   {
@@ -20,7 +21,7 @@ export const routes: Routes = [
     path: '',
     component: AuthLayoutComponent,
     children: [
-      { path: 'signup', component: LoginComponent },
+      { path: 'signup', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
     ],
   },

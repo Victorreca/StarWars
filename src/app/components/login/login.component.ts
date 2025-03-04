@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LoginService } from '../../services/login.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +16,10 @@ import { LoginService } from '../../services/login.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  form!: FormGroup;
   errorMessage: string | null = null;
 
   private fb = inject(FormBuilder);
-  private loginService = inject(LoginService);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   loginForm: FormGroup = this.fb.group({
@@ -32,7 +31,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 
-      this.loginService.signIn(email, password).subscribe({
+      this.authService.signIn(email, password).subscribe({
         next: () => {
           this.router.navigate(['/']);
         },
