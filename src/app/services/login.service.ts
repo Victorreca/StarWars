@@ -18,4 +18,12 @@ export class LoginService {
   signIn(email: string, password: string): Observable<any> {
     return from(signInWithEmailAndPassword(this.auth, email, password));
   }
+
+  getUser(): Observable<any> {
+    return user(this.auth);
+  }
+
+  logOut() {
+    return from(signOut(this.auth));
+  }
 }
