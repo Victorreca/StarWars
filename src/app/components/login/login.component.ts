@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -21,6 +21,7 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -30,10 +31,11 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
+      const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
       this.authService.signIn(email, password).subscribe({
         next: () => {
-          this.router.navigate(['/']);
+          this.router.navigate([returnUrl]);
         },
         error: (error) => {
           console.error('Error to sign in', error);

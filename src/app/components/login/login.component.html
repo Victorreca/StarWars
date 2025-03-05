@@ -1,15 +1,15 @@
 <div
-  class="w-full max-w-sm lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 lg:p-15 dark:bg-gray-800 dark:border-gray-700 mt-10">
+  class="w-full max-w-sm lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 lg:p-15 mt-10">
   <div>
     <img src="assets/img/mydisneylogo.webp" alt="logo disney">
   </div>
   <form class="space-y-6" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <h5 class="text-xl font-medium text-gray-900 dark:text-white">Enter your email to continue</h5>
+    <h5 class="text-xl font-medium text-gray-900">Enter your email to continue</h5>
     <p>Log in to Star Wars with your MyDisney account. If you don't have one, you will be prompted to create one.</p>
     <div>
-      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
       <input type="email" formControlName="email" id="email"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         placeholder="Email">
       @if(loginForm.get('email')?.invalid && loginForm.get('email')?.touched){
       <p class="text-red-500 text-sm">
@@ -18,7 +18,7 @@
       }
     </div>
     <div>
-      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+      <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Your password</label>
       <input type="password" formControlName="password" id="password" placeholder="••••••••"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
       @if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched){
@@ -33,7 +33,7 @@
     <button type="submit" [disabled]="loginForm.invalid"
       [ngClass]="{'opacity-50 cursor-not-allowed': loginForm.invalid, 'cursor-pointer': !loginForm.invalid}"
       class="w-full text-white bg-star-wars-yellow-light hover:bg-star-wars-yellow font-medium rounded-lg text-sm px-5 py-2.5 text-center">Continue</button>
-    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+    <div class="text-sm font-medium text-gray-500">
       Not registered? <a [routerLink]="['/signup']"
         class="text-star-wars-yellow hover:text-star-wars-yellow-light">Create
         account</a>
