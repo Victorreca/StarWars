@@ -1,15 +1,15 @@
 <div
-  class="w-full max-w-sm lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 lg:p-15 dark:bg-gray-800 dark:border-gray-700 mt-10">
+  class="w-full max-w-sm lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 lg:p-15 mt-10">
   <div>
     <img src="assets/img/mydisneylogo.webp" alt="logo disney">
   </div>
   <form class="space-y-6" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <h5 class="text-xl font-medium text-gray-900 dark:text-white">Create an account to continue</h5>
+    <h5 class="text-xl font-medium text-gray-900">Create an account to continue</h5>
     <p>Register to Star Wars with your MyDisney account.</p>
     <div>
-      <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+      <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
       <input type="text" formControlName="firstName" id="firstName"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         placeholder="First Name" />
       @if (registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched) {
       <p class="text-red-500 text-sm">First Name is required.</p>
@@ -17,9 +17,9 @@
     </div>
 
     <div>
-      <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+      <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
       <input type="text" formControlName="lastName" id="lastName"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         placeholder="Last Name" />
       @if (registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched) {
       <p class="text-red-500 text-sm">Last Name is required.</p>
@@ -27,9 +27,9 @@
     </div>
 
     <div>
-      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
       <input type="email" formControlName="email" id="email"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         placeholder="Email">
       @if(registerForm.get('email')?.invalid && registerForm.get('email')?.touched){
       <p class="text-red-500 text-sm">
@@ -38,7 +38,7 @@
       }
     </div>
     <div>
-      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Choose a
+      <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Choose a
         password</label>
       <input type="password" formControlName="password" id="password" placeholder="••••••••"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
