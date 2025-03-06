@@ -8,16 +8,18 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink, ReactiveFormsModule, CommonModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, FontAwesomeModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   errorMessage: string | null = null;
-
+  googleIcon = faGoogle;
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
@@ -43,5 +45,18 @@ export class LoginComponent {
         },
       });
     }
+  }
+
+  loginWithGoogle() {
+    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.authService.signInWithGoogle().subscribe({
+      next: () => {
+        this.router.navigate([returnUrl]);
+      },
+      error: (error) => {
+        console.error('Error to sign in with Google', error);
+        this.errorMessage = 'Failed to sign in with Google';
+      },
+    });
   }
 }
