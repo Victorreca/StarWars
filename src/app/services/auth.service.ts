@@ -2,7 +2,9 @@ import { inject, Injectable } from '@angular/core';
 import {
   Auth,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
   user,
@@ -17,6 +19,10 @@ export class AuthService {
 
   signIn(email: string, password: string): Observable<any> {
     return from(signInWithEmailAndPassword(this.auth, email, password));
+  }
+  signInWithGoogle(): Observable<any> {
+    const provider = new GoogleAuthProvider();
+    return from(signInWithPopup(this.auth, provider));
   }
 
   signUp(
