@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { StarshipsResponse } from '../interfaces/starships-response';
@@ -10,7 +10,7 @@ import { Starship } from '../interfaces/starship';
 })
 export class StarshipService {
   urlApi: string = 'https://swapi.dev/api/starships/';
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   fetchStarships(
     url: string = this.urlApi
@@ -21,6 +21,7 @@ export class StarshipService {
           id: ship.url.split('/').filter(Boolean).pop(),
           name: ship.name,
           model: ship.model,
+          pilots: ship.pilots,
         })),
         nextPageUrl: response.next,
       }))

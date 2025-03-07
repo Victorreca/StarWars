@@ -7,4 +7,5 @@ export interface Starship {
   cost_in_credits?: string;
   max_atmosphering_speed?: string;
   crew?: string;
+  pilots: string[];
 }

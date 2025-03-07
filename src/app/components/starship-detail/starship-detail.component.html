@@ -1,13 +1,13 @@
 @if(starship){
-<section>
-  <header class="text-white uppercase w-10/12 mx-auto border-t border-b border-white py-3 mt-10 mb-5">
+<div class="w-10/12 mx-auto">
+  <header class="text-white uppercase border-t border-b border-white py-3 mt-10 mb-5">
     <h1 class="text-4xl">
       Starships
     </h1>
   </header>
-  <div class="grid grid-cols-1 md:grid-cols-2 w-10/12 mx-auto pb-15">
+  <section class="grid grid-cols-1 md:grid-cols-2 pb-15">
     <app-starship-gallery class="mx-auto md:ml-auto"></app-starship-gallery>
-    <section class="text-white animation-section">
+    <div class="text-white animation-section">
       <div class="bg-primary p-5 min-h-full">
         <h1 class="text-xl mb-3">{{ starship.name }}</h1>
         <p>Model: {{ starship.model }}</p>
@@ -17,7 +17,10 @@
         <p>Max Atmosphering Speed: {{ starship.max_atmosphering_speed }}</p>
         <p>Crew: {{ starship.crew }}</p>
       </div>
-    </section>
-  </div>
-</section>
+    </div>
+  </section>
+
+  <!-- @if(pilots){ -->
+  <app-pilots></app-pilots>
+</div>
 }
