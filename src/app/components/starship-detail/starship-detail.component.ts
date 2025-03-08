@@ -2,11 +2,13 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StarshipService } from '../../services/starship.service';
 import { Starship } from '../../interfaces/starship';
-import { StarshipGalleryComponent } from '../starship-gallery/starship-gallery.component';
+import { StarshipGalleryComponent } from './starship-gallery/starship-gallery.component';
+import { PilotsComponent } from '../pilots/pilots.component';
+import { FilmsComponent } from '../films/films.component';
 
 @Component({
   selector: 'app-starship-detail',
-  imports: [StarshipGalleryComponent],
+  imports: [StarshipGalleryComponent, PilotsComponent, FilmsComponent],
   templateUrl: './starship-detail.component.html',
   styleUrl: './starship-detail.component.scss',
 })
