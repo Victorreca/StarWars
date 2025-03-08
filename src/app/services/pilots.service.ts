@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { forkJoin, Observable, of, Subscriber } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { StarshipService } from './starship.service';
 import { Pilot } from '../interfaces/pilot';
@@ -20,13 +20,13 @@ export class PilotsService {
         if (pilotUrls.length < 1) {
           return of([]);
         } else {
-          return forkJoin(pilotUrls.map((url) => this.fetchPilotsDetails(url)));
+          return forkJoin(pilotUrls.map((url) => this.fetchPilotDetails(url)));
         }
       })
     );
   }
 
-  fetchPilotsDetails(pilotUrl: string): Observable<Pilot> {
+  fetchPilotDetails(pilotUrl: string): Observable<Pilot> {
     return this.http.get(pilotUrl).pipe(
       map((pilotData: any) => {
         const id = pilotUrl.split('/').filter(Boolean).pop() ?? '';

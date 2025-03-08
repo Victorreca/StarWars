@@ -22,6 +22,7 @@ export class StarshipService {
           name: ship.name,
           model: ship.model,
           pilots: ship.pilots,
+          films: ship.films,
         })),
         nextPageUrl: response.next,
       }))
