@@ -28,12 +28,18 @@ export class PilotsService {
 
   fetchPilotsDetails(pilotUrl: string): Observable<Pilot> {
     return this.http.get(pilotUrl).pipe(
-      map((pilotData: any) => ({
-        name: pilotData.name,
-        gender: pilotData.gender,
-        height: pilotData.height,
-        birth_year: pilotData.birth_year,
-      }))
+      map((pilotData: any) => {
+        const id = pilotUrl.split('/').filter(Boolean).pop() ?? '';
+
+        return {
+          id,
+          name: pilotData.name,
+          gender: pilotData.gender,
+          height: pilotData.height,
+          birth_year: pilotData.birth_year,
+          imageUrl: `https://res.cloudinary.com/dwygcrj5r/image/upload/pilot_${id}.jpg`,
+        };
+      })
     );
   }
 }

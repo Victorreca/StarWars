@@ -2,7 +2,6 @@
   --c: var(--color-star-wars-yellow);
   --b: 5px;
   --g: 0px;
-  padding: calc(var(--g) + var(--b));
   --_g: #0000 25%, var(--c) 0;
   background: conic-gradient(
         from 180deg at top var(--b) right var(--b),

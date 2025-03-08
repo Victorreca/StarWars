@@ -1,11 +1,12 @@
+@if(pilots.length > 0){
 <section class="text-white uppercase mt-10 mb-5">
   <h2 class="text-4xl border-t border-b border-white py-3">
     Pilots
   </h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5">
     @for(pilot of pilots; track pilot.name) {
-    <div class="max-w bg-white border border-gray-200 rounded-lg shadow-sm">
-      <img class="rounded-t-lg" src="https://res.cloudinary.com/dwygcrj5r/image/upload/v1739873550/5.jpg" alt="" />
+    <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+      <app-pilots-gallery [pilotChild]="pilot"></app-pilots-gallery>
       <div class="p-5">
         <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{ pilot.name }}</h5>
         <p class="text-gray-700">Gender: {{ pilot.gender }}</p>
@@ -16,3 +17,4 @@
     }
   </div>
 </section>
+}

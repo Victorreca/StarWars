@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PilotsService } from '../../services/pilots.service';
 import { Pilot } from '../../interfaces/pilot';
-import { Starship } from '../../interfaces/starship';
 import { ActivatedRoute } from '@angular/router';
+import { PilotsGalleryComponent } from './pilots-gallery/pilots-gallery.component';
 
 @Component({
   selector: 'app-pilots',
-  imports: [],
+  imports: [PilotsGalleryComponent],
   templateUrl: './pilots.component.html',
   styleUrl: './pilots.component.scss',
 })
