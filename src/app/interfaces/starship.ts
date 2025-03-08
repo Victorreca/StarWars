@@ -8,4 +8,5 @@ export interface Starship {
   max_atmosphering_speed?: string;
   crew?: string;
   pilots: string[];
+  films: string[];
 }

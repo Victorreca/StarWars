@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { forkJoin, Observable, of, Subscriber } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { StarshipService } from './starship.service';
 import { Pilot } from '../interfaces/pilot';
