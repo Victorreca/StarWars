@@ -1,59 +1,142 @@
-# StarWars
+# 🚀 Star Wars Starships Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+Aplicación web desarrollada con **Angular 19** para explorar naves del universo Star Wars. Permite listar, visualizar detalles, gestionar usuarios y proteger rutas para ofrecer una experiencia personalizada a cada usuario/a.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📄 Descripción
+
+Esta aplicación permite explorar un listado de naves espaciales extraídas desde una API externa, visualizar su información detallada, gestionar usuarios mediante **login/register** con **Firebase**, y proteger rutas para que solo los usuarios autenticados puedan acceder a determinadas secciones.
+
+---
+
+## ✨ Características
+
+### **1️⃣ Listado de naves**
+
+- Se muestra un listado con:
+  - **Nombre**
+  - **Modelo**
+- Implementado **scroll infinito** para cargar más naves a medida que el usuario se desplaza.
+
+### **2️⃣ Detalle de naves**
+
+- Cada nave tiene su propia ficha con información detallada:
+  - **Nombre, modelo, longitud, costo, tripulación, velocidad, etc.**
+- Se accede mediante **routing dinámico** (`/starship/:id`).
+- Se renderizan:
+  - **Pilotos de la nave**
+  - **Películas en las que aparece**
+
+### **3️⃣ Paginación con Scroll Infinito**
+
+- Mejor experiencia con **scroll infinito**, cargando nuevas naves según necesidad.
+
+### **4️⃣ Navegación y estilos personalizados**
+
+- Navbar superior con enlaces a:
+  - **Inicio**
+  - **Listado de naves**
+  - **Login/Register (si no está autenticado)**
+- Maquetación inspirada en la web oficial de Star Wars.
+
+### **5️⃣ Autenticación de usuarios/as**
+
+- **Login y registro con Firebase**.
+- Validaciones:
+  - **Email único al registrarse**.
+  - **Redirección automática al login si intenta acceder a contenido restringido**.
+- Integración de **Google Sign-In**.
+
+### **6️⃣ Protección de rutas con AuthGuard**
+
+- Solo usuarios autenticados pueden ver el listado de naves y sus detalles.
+- Si un usuario no registrado intenta acceder, se redirige al **login** y luego a la página original.
+
+### **7️⃣ Tests unitarios con Jasmine y Karma**
+
+- Se han creado tests unitarios para:
+  - **PilotsComponent**
+  - **StarshipsComponent**
+  - **StarshipGalleryComponent**
+- Se mockean servicios y se testea la correcta visualización de la información.
+
+---
+
+## 💻 Tecnologías utilizadas
+
+- **Angular 19** con Standalone Components
+- **TypeScript**
+- **SCSS** para estilos personalizados
+- **Tailwind 4** para estilos predefinidos
+- **Reactive Forms** para validaciones avanzadas
+- **RxJS** para manejar asincronía
+- **Firebase Authentication** para login y registro
+- **Cloudinary** para almacenamiento y gestión de imágenes
+- **Jasmine/Karma** para tests unitarios
+
+---
+
+## 📋 Requisitos
+
+- Navegador web moderno.
+- Node.js y npm instalados. Descarga desde [nodejs.org](https://nodejs.org/)
+- Angular CLI instalado globalmente:
 
 ```bash
-ng serve
+npm install -g @angular/cli
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🛠️ Instalación
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### **1️⃣ Clonar el repositorio**
 
 ```bash
-ng generate component component-name
+git clone https://github.com/Victorreca/StarWars
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### **2️⃣ Ingresar al proyecto**
 
 ```bash
-ng generate --help
+cd StarWars
 ```
 
-## Building
-
-To build the project run:
+### **3️⃣ Instalar dependencias**
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### **4️⃣ Iniciar la aplicación**
 
 ```bash
-ng test
+ng serve -o
 ```
 
-## Running end-to-end tests
+Esto abrirá la aplicación en `http://localhost:4200`.
 
-For end-to-end (e2e) testing, run:
+---
+
+## 🛠️ Uso
+
+1️⃣ Accede a la aplicación en `http://localhost:4200`. 2️⃣ Navega por el listado de naves. 3️⃣ Haz clic en una nave para ver sus detalles. 4️⃣ Regístrate o inicia sesión para desbloquear contenido.
+
+---
+
+## 🤝 Contribuciones
+
+1️⃣ Realiza un **fork** del repositorio. 2️⃣ Crea una **nueva rama** para tus cambios:
 
 ```bash
-ng e2e
+git checkout -b nombre-rama
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3️⃣ Realiza tus cambios y súbelos al repositorio remoto. 4️⃣ Crea un **pull request** detallando las modificaciones.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 📌 Autor
+
+Desarrollado por **Víctor Redondo** 👨‍💻🚀
