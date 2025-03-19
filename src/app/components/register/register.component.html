@@ -1,7 +1,7 @@
 <div
   class="w-full max-w-sm lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 lg:p-15 mt-10">
   <div>
-    <img src="assets/img/mydisneylogo.webp" alt="logo disney">
+    <img ngOptimizedImage [src]="disneyLogo" alt="logo disney">
   </div>
   <form class="space-y-6" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <h5 class="text-xl font-medium text-gray-900">Create an account to continue</h5>

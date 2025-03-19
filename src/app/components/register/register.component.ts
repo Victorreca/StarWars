@@ -16,7 +16,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegisterComponent {
   errorMessage: string | null = null;
-
+  disneyLogo = 'assets/img/mydisneylogo.webp';
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);

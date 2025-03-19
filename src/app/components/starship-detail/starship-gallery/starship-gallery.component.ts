@@ -11,6 +11,8 @@ export class StarshipGalleryComponent implements OnInit {
   imageUrl: string | null = null;
   starshipId: string | null = null;
   route = inject(ActivatedRoute);
+  starshipImageDefault =
+    'https://res.cloudinary.com/dwygcrj5r/image/upload/v1739873550/1.jpg';
 
   ngOnInit(): void {
     this.starshipId = this.route.snapshot.paramMap.get('id');

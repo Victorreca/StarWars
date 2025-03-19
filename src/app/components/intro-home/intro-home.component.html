@@ -3,35 +3,14 @@
     A long time ago in a galaxy far, far away...
   </p>
   <h2 class="main-logo">
-    <img src="assets/img/star-wars-intro.png">
+    <img ngOptimizedImage [src]="starWarsIntroImg">
   </h2>
   <div class="main-content">
 
     <div class="title-content">
-      <p class="content-header">Episode V</p>
+      <p class="content-header">{{titleStarWarsIntro}}</p>
       <br>
-      <p class="content-body">
-        It is a dark time for the
-        Rebellion. Although the Death
-        Star has been destroyed,
-        Imperial troops have driven the
-        Rebel forces from their hidden
-        base and pursued them across
-        the galaxy.<br><br>
-
-        Evading the dreaded Imperial
-        Starfleet, a group of freedom
-        fighters led by Luke Skywalker
-        has established a new secret
-        base on the remote ice world
-        of Hoth.<br><br>
-
-        The evil lord Darth Vader,
-        obsessed with finding young
-        Skywalker, has dispatched
-        thousands of remote probes into
-        the far reaches of space.
-      </p>
+      <p class="content-body" [innerHTML]="contentStarWarsIntro"></p>
     </div>
   </div>
   <div class="text-center space-button-div">

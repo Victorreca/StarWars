@@ -20,6 +20,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 export class LoginComponent {
   errorMessage: string | null = null;
   googleIcon = faGoogle;
+  disneyLogo = 'assets/img/mydisneylogo.webp';
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);

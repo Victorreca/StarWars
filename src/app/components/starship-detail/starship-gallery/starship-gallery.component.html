@@ -1,10 +1,10 @@
 @if(imageUrl){
 <section>
-  <img [src]="imageUrl" [alt]="'Starship ' + starshipId" width="500" class="object-cover animation-img w-full">
+  <img ngOptimizedImage [src]="imageUrl" [alt]="'Starship ' + starshipId" width="500"
+    class="object-cover animation-img w-full">
 </section>
 } @else {
 <section>
-  <img src="https://res.cloudinary.com/dwygcrj5r/image/upload/v1739873550/1.jpg" alt="Starship not found"
-    class="object-cover animation-img w-full">
+  <img ngOptimizedImage [src]="starshipImageDefault" alt="Starship not found" class="object-cover animation-img w-full">
 </section>
 }
