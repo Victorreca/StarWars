@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   userEmail: string | null = null;
   isMenuOpen: boolean = false;
   userIcon = faUser;
+  logoAuth = '../assets/img/logo-sw.png';
 
   ngOnInit(): void {
     this.authService.getUser().subscribe({

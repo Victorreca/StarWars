@@ -7,4 +7,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './auth-navbar.component.html',
   styleUrl: './auth-navbar.component.scss',
 })
-export class AuthNavbarComponent {}
+export class AuthNavbarComponent {
+  logoAuth = 'assets/img/logo-sw.png';
+}
