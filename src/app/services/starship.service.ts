@@ -9,7 +9,7 @@ import { Starship } from '../interfaces/starship';
   providedIn: 'root',
 })
 export class StarshipService {
-  urlApi: string = 'https://swapi.dev/api/starships/';
+  urlApi: string = 'https://swapi.tech/api/starships/';
   private http = inject(HttpClient);
 
   fetchStarships(
