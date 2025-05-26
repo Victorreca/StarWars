@@ -9,7 +9,7 @@ import { Starship } from '../interfaces/starship';
   providedIn: 'root',
 })
 export class StarshipService {
-  urlApi: string = 'https://swapi.tech/api/starships/';
+  urlApi: string = 'https://swapi.py4e.com/api/starships/';
   private http = inject(HttpClient);
 
   fetchStarships(
@@ -30,6 +30,8 @@ export class StarshipService {
   }
 
   fetchStarshipById(id: string): Observable<Starship> {
-    return this.http.get<Starship>(`https://swapi.tech/api/starships/${id}/`);
+    return this.http.get<Starship>(
+      `https://swapi.py4e.com/api/starships/${id}/`
+    );
   }
 }
