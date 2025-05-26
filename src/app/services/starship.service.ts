@@ -30,6 +30,6 @@ export class StarshipService {
   }
 
   fetchStarshipById(id: string): Observable<Starship> {
-    return this.http.get<Starship>(`https://swapi.dev/api/starships/${id}/`);
+    return this.http.get<Starship>(`https://swapi.tech/api/starships/${id}/`);
   }
 }
